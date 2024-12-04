@@ -74,6 +74,13 @@ body {
 	height: 200px;
 	width:200px;
 }
+
+.image{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .Compylogo{
 	height:50px;
 	width:100px;
