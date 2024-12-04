@@ -115,7 +115,12 @@
 
 				<!-- header profile -->
 				<div class="profile">
-					<div class="title">Business-Man</div>
+					<div class="title">
+						<span>Business-Man</span>
+						<span >
+							<i style="cursor: pointer;" class="fa fa-edit"></i>
+						</span>
+					</div>
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
 							<p>Interior Designer</p>
@@ -177,11 +182,25 @@
 				<div class="profile no-photo">
 
 					<!-- profile image -->
-					<div class="slide" style="background-image: url(images/man5_big.jpg);"></div>
-
+					<div class="slide" id="slide-container" style="background-image: url(images/man5_big.jpg);">
+						<button class="edit-icon" onclick="editImage()">
+							<i style="cursor: pointer;" class="fa fa-camera"></i>
+						</button>
+						<input type="file" id="file" style="display: none;" accept="image/*" onchange="changedFile(event)"/>
+					</div>
+					
 					<!-- profile titles -->
-					<div class="title">Business-Man</div>
-					<!--<div class="subtitle">Web Designer</div>-->
+					<div class="title">
+						<span id="title-text">Business-Man</span>
+						<span id="edit-icon" onclick="editName()">
+							<i style="cursor: pointer;" class="fa fa-edit"></i>
+						</span>
+					</div>
+					<div id="edit-controls" style="display: none;">
+						<input type="text" id="title-input" />
+						<button id="submit-btn" onclick="saveTitle()">Submit</button>
+						<button id="cancel-btn" onclick="cancelEdit()">Cancel</button>
+					</div>
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
 							<p>Interior Designer</p>
@@ -189,6 +208,7 @@
 							<p>Tile Dealer</p>
 						</div>
 					</div>
+					
 
 					<!-- profile socials -->
 					<div class="social">
@@ -960,10 +980,54 @@
 	-->
 	<script src="js/scripts.js"></script>
 
-	<!--
-		Google map api
-	-->
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> -->
+<script>
+		function editImage() {
+			document.getElementById('file').click();
+	}
+	function changedFile(event){
+		const sildeContainer = document.getElementById('slide-container');
+		sildeContainer.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
+	}	
+</script>
+<script>
+	function editName() {
+    const titleText = document.getElementById("title-text");
+    const editControls = document.getElementById("edit-controls");
+    const titleInput = document.getElementById("title-input");
+
+    editControls.style.display = "flex";
+
+    titleInput.value = titleText.textContent;
+
+    titleText.style.display = "none";
+    document.getElementById("edit-icon").style.display = "none";
+
+    titleInput.focus();
+}
+
+function saveTitle() {
+    const titleText = document.getElementById("title-text");
+    const editControls = document.getElementById("edit-controls");
+    const titleInput = document.getElementById("title-input");
+
+    titleText.textContent = titleInput.value.trim() || "Untitled";
+
+    editControls.style.display = "none";
+    titleText.style.display = "inline";
+    document.getElementById("edit-icon").style.display = "inline";
+}
+
+function cancelEdit() {
+    const editControls = document.getElementById("edit-controls");
+    const titleText = document.getElementById("title-text");
+
+    editControls.style.display = "none";
+    titleText.style.display = "inline";
+    document.getElementById("edit-icon").style.display = "inline";
+}
+
+
+</script>
 
 </body>
 </html>
