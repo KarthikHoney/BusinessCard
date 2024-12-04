@@ -1018,9 +1018,17 @@
 }
 
 /* 5.1 Resume */
+.resume-items {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
 .resume-items .resume-item {
 	position: relative;
 	padding: 20px 0 20px 0;
+	
 }
 
 .resume-items .resume-item:after {

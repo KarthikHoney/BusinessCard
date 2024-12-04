@@ -70,6 +70,70 @@ body {
 	width: 25px;
 }
 
+.proImage{
+	height: 200px;
+	width:200px;
+}
+.Compylogo{
+	height:50px;
+	width:100px;
+	border-radius: 50%;
+}
+
+.centrize{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+/* address */
+
+/* Container styling for the address block */
+.address {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem; 
+	padding: 1.5rem;
+	background-color: #f9f9f9; 
+	border: 1px solid #ddd; 
+	border-radius: 8px; 
+	width: 550px;
+	font-family: Arial, sans-serif;
+	margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .address {
+      width: 100%;
+    }
+  }
+  
+  /* Styling for individual address items */
+  .address-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem; 
+  }
+  
+  /* Styling for the icon */
+  .icon {
+	font-size: 1.5rem;
+	color: #80f469; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  /* Styling for the text */
+  .text {
+	font-size: 1rem; 
+	color: #333; 
+  }
+  
+
+
+
 .page {
 	position: absolute;
 	overflow: hidden;
